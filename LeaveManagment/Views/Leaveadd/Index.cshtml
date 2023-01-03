@@ -1,0 +1,51 @@
+﻿@model IEnumerable<LeaveManagment.Models.Class2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employeeid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Leaveid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Months)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Noofleaves)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employeeid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Leaveid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Months)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Noofleaves)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,45 @@
+﻿
+@model IEnumerable<LeaveManagment.Models.leave>
+<div>
+    <h2>Employee Details</h2>
+    @Html.ActionLink("Create Employee", "Create")
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Employeeid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sex)
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            @Html.HiddenFor(model => item.Employeeid)
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employeeid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sex)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditEmpDetails", new { id = item.Employeeid }) |
+                    @Html.ActionLink("Delete", "DeleteEmp", new { id = item.Employeeid }, new { onclick = "return confirm('Are sure wants to delete?');" })
+                </td>
+            </tr>
+
+
+
+        }
+
+    </table>

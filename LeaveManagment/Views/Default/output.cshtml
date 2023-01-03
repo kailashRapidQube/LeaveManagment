@@ -1,0 +1,67 @@
+﻿@using LeaveManagment.Models
+@using System.Data
+@using System.Data.SqlClient
+@model System.Data.DataTable
+<head>
+    @{ Layout = null; }
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        th {
+            background-color: dimgrey;
+            color: white;
+        }
+    </style>
+</head>
+<div>
+    <br />
+    @{
+
+
+        if (Model.Rows.Count > 0)
+        {
+
+            <table >
+                
+                    <tr>
+                        <th>
+                            Month
+                        </th>
+                        <th>
+                            Leaves gained
+                        </th>
+                    </tr>
+                
+                @foreach (DataRow dr in Model.Rows)
+                {
+
+                    <tr>
+                        <td>@dr["Months"].ToString() </td>
+                        <td>@dr["noofleaves"].ToString() </td>
+                        @*<td>@Html.ActionLink("Edit ", "Edit", new { StudentID = dr["student_id"].ToString() })</td>
+                            <td>@Html.ActionLink("| Delete", "Delete", new { StudentID = dr["student_id"].ToString() })</td>*@
+                    </tr>
+
+                }
+            </table>
+            <br />
+        }
+        else
+        {
+            <span> No records found!!</span>
+        }
+    }
+
+</div>

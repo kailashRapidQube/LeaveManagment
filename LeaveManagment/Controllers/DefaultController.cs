@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics.PerformanceData;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using LeaveManagment.Models;
+
+namespace LeaveManagment.Controllers
+{
+    public class DefaultController : Controller
+    {
+
+
+        // GET: Default
+        public ActionResult Index()
+        {
+           
+            return View("Index");           
+        }
+        
+        public ActionResult output(int a,int c)
+        {            
+            DataTable dt = new DataTable();
+            string strConString = "Data Source=DESKTOP-3A8JNRK;Initial Catalog=leavedb;Integrated Security=True";
+            using (SqlConnection con = new SqlConnection(strConString))
+            {                
+                con.Open();
+                SqlCommand cmd = new SqlCommand("spleavegained", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@a",a);
+                cmd.Parameters.AddWithValue("@c", c);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return View("output",dt);
+        }
+    }
+}
