@@ -28,7 +28,7 @@ namespace LeaveManagment.Controllers
             using (SqlConnection con = new SqlConnection(strConString))
             {                
                 con.Open();
-                SqlCommand cmd = new SqlCommand("spleavegained", con);
+                SqlCommand cmd = new SqlCommand("spleavegained1", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@a",a);
                 cmd.Parameters.AddWithValue("@c", c);

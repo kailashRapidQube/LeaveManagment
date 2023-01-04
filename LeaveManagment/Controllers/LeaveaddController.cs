@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Antlr.Runtime.Misc;
 
 namespace LeaveManagment.Controllers
 {
@@ -34,7 +35,7 @@ namespace LeaveManagment.Controllers
                             Leaveid = Convert.ToString(dr["Leaveid"]),
                             Year = Convert.ToString(dr["Year"]),
                             Months = Convert.ToString(dr["Months"]),
-                            Noofleaves = Convert.ToInt32(dr["Noofleaves"])
+                            noofleaves = Convert.ToInt32(dr["noofleaves"])
 
                         }
                         );
@@ -58,17 +59,22 @@ namespace LeaveManagment.Controllers
 
         // POST: Leaveadd/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Createrecord(FormCollection frm,string action )
         {
-            try
+            if (action == "Submit")
             {
-                // TODO: Add insert logic here
-
+                Class2 model = new Class2();
+                int Employeeid = Convert.ToInt32(frm["txtid"]);
+                int Leaveid = Convert.ToInt32(frm["txtid2"]);
+                string Year = frm["txtYear"];
+                string Months = frm["txtMonth"];
+                int noofleaves  = Convert.ToInt32(frm["txtLeaves"]);
+                int status = model.InsertLeave(Employeeid,Leaveid, Year, Months,noofleaves);
                 return RedirectToAction("Index");
             }
-            catch
+            else
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
 

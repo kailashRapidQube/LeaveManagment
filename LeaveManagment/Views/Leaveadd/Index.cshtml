@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Months)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Noofleaves)
+            @Html.DisplayName("Days Worked")
         </th>
         <th></th>
     </tr>
@@ -38,12 +38,12 @@
             @Html.DisplayFor(modelItem => item.Months)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Noofleaves)
+            @Html.DisplayFor(modelItem => item.noofleaves)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
         </td>
     </tr>
 }

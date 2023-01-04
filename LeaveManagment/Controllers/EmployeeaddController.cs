@@ -7,7 +7,6 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using System.Web.UI.WebControls;
-using Newtonsoft.Json;
 using LeaveManagment.Models;
 using Antlr.Runtime.Misc;
 
