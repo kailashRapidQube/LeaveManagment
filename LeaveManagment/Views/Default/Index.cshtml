@@ -1,8 +1,8 @@
-﻿@using System.Data
-
+﻿@using LeaveManagment.Models
+@using System.Data
 @using System.Data.SqlClient
 @model System.Data.DataTable
-@using LeaveManagment.Models;
+
 
 <!DOCTYPE html>
 
@@ -10,32 +10,40 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+
 </head>
 <body>
-    <h1>Leave Managment</h1><br />
+    <h1>Leave Management</h1><br />
     <div>
-        <form method="post">
+        <form method="post" name="form1">
+
             <p>
 
                 <pre>
 <br />
-            Enter Employee ID : <input name="year" id="inputa" />
+            Enter Employee Name : <select name="name" id="inputa">
+    <option value="Select ">Select Employee Name</option>
+    @foreach (DataRow dr in Model.Rows)
+    {
+        <option value="@dr["Employee"].ToString()">@dr["Employee"].ToString()</option>
+    }
+</select>
                 <br />
-            Enter Year        : <input name="year" id="inputb" />
+            Enter Year          : <input name="year" id="inputb" />
                 <br />
 </pre>
             </p>
 
             @*<input type="submit" value="Submit"    name="action" />*@
 
-            @{ leave c = new leave();
-                @*@Html.EditorFor(model => c.id)*@
-                @*@Html.TextBox("id")*@
-                @*@Html.ActionLink("Submit ", "output", new { a = 2, c = 2022 })*@
-                @*<input type="button" class="btn btn-success" value="submit" onclick="location.href = '@Url.Action("output")?a=' + document.getElementById('inputa').value + '&c=' + document.getElementById('inputb').value" />*@
-                <input type="button" class="btn btn-success" value="submit" onclick="test.location.href = '@Url.Action("output")?a=' + document.getElementById('inputa').value + '&c=' + document.getElementById('inputb').value" />
-                <iframe  frameborder="0" name="test" id="test" width=1200 height=800></iframe>
-                }
+
+            @*@Html.EditorFor(model => c.id)*@
+            @*@Html.TextBox("id")*@
+            @*@Html.ActionLink("Submit ", "output", new { a = 2, c = 2022 })*@
+            @*<input type="button" class="btn btn-success" value="submit" onclick="location.href = '@Url.Action("output")?a=' + document.getElementById('inputa').value + '&c=' + document.getElementById('inputb').value" />*@
+            <input type="button" class="btn btn-success" value="submit" onclick="test.location.href = '@Url.Action("output")?a=' + document.getElementById('inputa').value + '&c=' + document.getElementById('inputb').value" />
+            <iframe frameborder="0" name="test" id="test" width=1200 height=800></iframe>
+
 
             <br />
 

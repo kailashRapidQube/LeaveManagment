@@ -10,15 +10,29 @@
     <form id="frmDetail" method="post" action="@Url.Action("Createrecord")">
         <pre>
 <br />
-        Enter Employee id      :<input name="txtid" />
-        <br /><br />
-        Enter Levae id         :<input name="txtid2" />
-        <br /><br />
-        Enter Month            :<input name="txtMonth" />
+        Enter Employee id      : <input name="txtid" />
         <br />
-        Enter Year             :<input name="txtYear" />
-        <br /><br />
-        Enter No of DaysWorked :<input name="txtLeaves" />
+        Enter Levae id         : <input name="txtid2" />
+        <br />
+        Enter Month            :@*<input name="txtMonth" />*@ <select placeholder="MM" name="txtMonth">
+            <option name="" value="" style="display:none;">Select Month</option>
+            <option name="January" value="January">January</option>
+            <option name="February" value="February">February</option>
+            <option name="March" value="March">March</option>
+            <option name="April" value="April">April</option>
+            <option name="May" value="May">May</option>
+            <option name="June" value="June">June</option>
+            <option name="July" value="July">July</option>
+            <option name="August" value="August">August</option>
+            <option name="September" value="September">September</option>
+            <option name="October" value="October">October</option>
+            <option name="November" value="November">November</option>
+            <option name="December" value="December">December</option>
+        </select>
+        <br />
+        Enter Year             : <input name="txtYear" />
+        <br />
+        Enter No of DaysWorked : <input name="txtLeaves" />
         <br />
         </pre>
         <input type="submit" value="Submit" name="action" />

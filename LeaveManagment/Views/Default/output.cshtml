@@ -30,20 +30,22 @@
     @{
 
 
+
+
         if (Model.Rows.Count > 0)
         {
 
-            <table >
-                
-                    <tr>
-                        <th>
-                            Month
-                        </th>
-                        <th>
-                            Leaves gained
-                        </th>
-                    </tr>
-                
+            <table>
+
+                <tr>
+                    <th>
+                        Month
+                    </th>
+                    <th>
+                        Leaves gained
+                    </th>
+                </tr>
+
                 @foreach (DataRow dr in Model.Rows)
                 {
 
