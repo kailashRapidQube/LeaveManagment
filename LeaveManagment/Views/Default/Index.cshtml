@@ -22,33 +22,33 @@
 <body>
     <h1>Leave Management</h1><br />
     <div>
-        <form id="form11" method="post" name="form1">
+        <form id="form11" method="post" name="form1" action="@Url.Action("output")" target="test">
 
             <p>
 
-                <pre>
+            <pre>
             <br />
-            Enter Employee Name : <select style="padding: 8px 10px;" name="name" id="inputa">
-                    <option  value="Select ">Select Employee Name</option>
+            Enter Employee Name : <select style="padding: 8px 10px;" name="a" id="inputa" required>
+                                      <option name="" value="" style="display:none;">Select Employee Name</option>
                               @foreach (DataRow dr in Model.Rows)
                             {
                          <option value="@dr["Employee"].ToString()">@dr["Employee"].ToString()</option>
                             }
                                   </select>
                 <br />
-            Enter Year          : <input name="year" id="inputb" required minlength="4" maxlength="4" />
+            Enter Year          : <input style="padding: 6px 15px;" name="c" id="inputb" required minlength="4" maxlength="4"  required />
                 <br />
             </pre>
             </p>
 
-            @*<input type="submit" value="Submit"    name="action" />*@
+          <input type="submit" value="Submit"  name="action" class="btn btn-success" />
 
 
             @*@Html.EditorFor(model => c.id)*@
             @*@Html.TextBox("id")*@
             @*@Html.ActionLink("Submit ", "output", new { a = 2, c = 2022 })*@
             @*<input type="button" class="btn btn-success" value="submit" onclick="location.href = '@Url.Action("output")?a=' + document.getElementById('inputa').value + '&c=' + document.getElementById('inputb').value" />*@
-            <input id="btn1" type="button" class="btn btn-success" value="submit"  onclick="return ValidateTextBox(),test.location.href = '@Url.Action("output")?a=' + document.getElementById('inputa').value + '&c=' + document.getElementById('inputb').value " />
+            @*<input style="border-radius: 100%;" id="btn1" type="button" class="btn btn-success" value="submit"  onclick="test.location.href = '@Url.Action("output")?a=' + document.getElementById('inputa').value + '&c=' + document.getElementById('inputb').value " />*@
             <iframe frameborder="0" name="test" id="test" width=1200 height=800></iframe>
 
 

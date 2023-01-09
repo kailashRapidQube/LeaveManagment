@@ -31,6 +31,7 @@ namespace LeaveManagment.Models
                 da.Fill(dt);
             }
             return dt;
+            
         }
         public DataTable GetLeaves()
         {

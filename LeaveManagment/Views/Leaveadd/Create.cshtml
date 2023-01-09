@@ -10,11 +10,11 @@
     <form id="frmDetail" method="post" action="@Url.Action("Createrecord")">
         <pre>
 <br />
-        Enter Employee id      : <input name="txtid" />
+        Enter Employee id      : <input name="txtid" required/>
         <br />
-        Enter Levae id         : <input name="txtid2" />
+        Enter Levae id         : <input name="txtid2" required/>
         <br />
-        Enter Month            :@*<input name="txtMonth" />*@ <select placeholder="MM" name="txtMonth">
+        Enter Month            :@*<input name="txtMonth" />*@ <select placeholder="MM" name="txtMonth" required>
             <option name="" value="" style="display:none;">Select Month</option>
             <option name="January" value="January">January</option>
             <option name="February" value="February">February</option>
@@ -30,9 +30,9 @@
             <option name="December" value="December">December</option>
         </select>
         <br />
-        Enter Year             : <input name="txtYear" />
+        Enter Year             : <input name="txtYear" required/>
         <br />
-        Enter No of DaysWorked : <input name="txtLeaves" />
+        Enter No of DaysWorked : <input name="txtLeaves" required/>
         <br />
         </pre>
         <input type="submit" value="Submit" name="action" />
