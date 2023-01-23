@@ -21,7 +21,7 @@ namespace LeaveManagment.Controllers
             {
                 List<Class2> EmpList = new List<Class2>();
                 con.Open();
-                SqlCommand cmd = new SqlCommand("select * from leavedetailstbl", con);
+                SqlCommand cmd = new SqlCommand("select * from leavedetailstbl ORDER BY Employeeid,\r\nCASE \r\n     WHEN Months = 'January' THEN 1\r\n     WHEN Months = 'February' THEN 2\r\n     WHEN Months = 'March' THEN 3\r\n     WHEN Months = 'April' THEN 4\r\n     WHEN Months = 'May' THEN 5\r\n     WHEN Months = 'June' THEN 6\r\n\t WHEN Months = 'July' THEN 7\r\n     WHEN Months = 'August' THEN 8\r\n     WHEN Months = 'September' THEN 9\r\n     WHEN Months = 'October' THEN 10\r\n     WHEN Months = 'November' THEN 11\r\n     WHEN Months = 'December' THEN 12\r\n     ELSE 13 \r\n     END ASC", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
@@ -36,7 +36,6 @@ namespace LeaveManagment.Controllers
                             Year = Convert.ToString(dr["Year"]),
                             Months = Convert.ToString(dr["Months"]),
                             noofleaves = Convert.ToInt32(dr["noofleaves"])
-
                         }
                         );
                 }

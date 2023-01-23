@@ -14,6 +14,7 @@ namespace LeaveManagment.Controllers
 {
     public class EmployeeaddController : Controller
     {
+        
         // GET: Employeeadd
         public ActionResult Index()
         {
@@ -28,14 +29,12 @@ namespace LeaveManagment.Controllers
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-
                     EmpList.Add(
-
                         new leave
                         {
                             Employeeid = Convert.ToInt32(dr["Employeeid"]),
                             Employee = Convert.ToString(dr["Employee"]),
-                            Sex = Convert.ToString(dr["Sex"]),                         
+                            Sex = Convert.ToString(dr["Sex"])                                    
                         }
                         );
                 }
@@ -61,8 +60,8 @@ namespace LeaveManagment.Controllers
                 if (action == "Submit")
                 {
                     Class1 model = new Class1();
-                int Employeeid = Convert.ToInt32(frm["txtid"]);
-                string Employee = frm["txtName"];
+                    int Employeeid = Convert.ToInt32(frm["txtid"]);
+                    string Employee = frm["txtName"];
                     string  Sex = frm["txtAge"];                   
                     int status = model.InsertStudent(Employeeid,Employee, Sex);
                     return RedirectToAction("Index");
